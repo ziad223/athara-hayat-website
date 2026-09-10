@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 
 export default function Footer({ lang }: { lang: string }) {
   const isAr = lang === "ar";
@@ -60,7 +60,18 @@ export default function Footer({ lang }: { lang: string }) {
           <div>
             <h4 className="text-white font-bold text-lg mb-6">{isAr ? "تواصل معنا" : "Contact"}</h4>
             <ul className="space-y-4 text-sm font-medium">
-              <li className="flex items-center gap-3"><Phone className="w-4 h-4 text-primary" /> <span dir="ltr">+971 50 123 4567</span></li>
+              <li className="flex items-center gap-3">
+                <a href="tel:+97143441549" className="flex items-center gap-3 hover:text-primary transition-colors">
+                  <Phone className="w-4 h-4 text-primary" />
+                  <span dir="ltr">+971 4 344 1549</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <a href="https://wa.me/97143441549" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-primary transition-colors">
+                  <MessageCircle className="w-4 h-4 text-green-500" />
+                  <span dir="ltr">+971 4 344 1549</span>
+                </a>
+              </li>
               <li className="flex items-center gap-3"><Mail className="w-4 h-4 text-primary" /> hello@atharyhayat.com</li>
               <li className="flex items-center gap-3"><MapPin className="w-4 h-4 text-primary" /> {isAr ? "دبي، الإمارات العربية المتحدة" : "Dubai, UAE"}</li>
             </ul>

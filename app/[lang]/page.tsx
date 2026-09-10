@@ -320,7 +320,6 @@ export default async function Home({
             <div className="bg-card p-8 rounded-3xl border border-border shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-bold text-2xl mb-2 text-foreground">{isAr ? "الأساسية" : "Basic"}</h3>
               <p className="text-sm text-muted-foreground mb-6">{isAr ? "للاطباء والعيادات الناشئة" : "For starting doctors & clinics"}</p>
-              <div className="text-4xl font-extrabold text-foreground mb-8">{isAr ? "مجاناً" : "Free"}</div>
               <ul className="space-y-4 text-muted-foreground mb-8">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center text-xs">✓</div>
@@ -347,7 +346,6 @@ export default async function Home({
               </div>
               <h3 className="font-bold text-2xl mb-2">{isAr ? "الاحترافية" : "Pro"}</h3>
               <p className="text-sm text-blue-100 mb-6">{isAr ? "للعيادات والمراكز المتطورة" : "For growing clinics & centers"}</p>
-              <div className="text-5xl font-extrabold mb-8">$49<span className="text-xl font-normal text-blue-200">/{isAr ? "شهر" : "mo"}</span></div>
               <ul className="space-y-4 mb-10 font-medium">
                 <li className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-sm">✓</div>
@@ -375,7 +373,6 @@ export default async function Home({
             <div className="bg-card p-8 rounded-3xl border border-border shadow-sm hover:shadow-md transition-shadow">
               <h3 className="font-bold text-2xl mb-2 text-foreground">{isAr ? "المؤسسات" : "Enterprise"}</h3>
               <p className="text-sm text-muted-foreground mb-6">{isAr ? "للمستشفيات متعددة الفروع" : "For multi-branch hospitals"}</p>
-              <div className="text-4xl font-extrabold text-foreground mb-8">$149<span className="text-xl font-normal text-muted-foreground">/{isAr ? "شهر" : "mo"}</span></div>
               <ul className="space-y-4 text-muted-foreground mb-8">
                 <li className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-600 flex items-center justify-center text-xs">✓</div>
