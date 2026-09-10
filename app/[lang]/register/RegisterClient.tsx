@@ -59,24 +59,85 @@ export default function RegisterClient({ lang }: { lang: string }) {
         </h3>
         
         <form className="space-y-4" onSubmit={handleSubmit}>
+          {/* Dynamic Fields based on Account Type */}
+          {selectedType === 'clinic' && (
+            <>
+              <div>
+                <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "اسم العيادة / المركز الطبي" : "Clinic / Center Name"}</label>
+                <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "رقم الترخيص الطبي" : "Medical License Number"}</label>
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "التخصص الرئيسي" : "Main Specialty"}</label>
+                  <select required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all appearance-none">
+                    <option value="">{isAr ? "اختر التخصص" : "Select Specialty"}</option>
+                    <option value="dental">{isAr ? "أسنان" : "Dental"}</option>
+                    <option value="derma">{isAr ? "جلدية وتجميل" : "Dermatology"}</option>
+                    <option value="general">{isAr ? "طب عام" : "General Medicine"}</option>
+                  </select>
+                </div>
+              </div>
+            </>
+          )}
+
+          {selectedType === 'doctor' && (
+            <>
+              <div>
+                <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "الاسم الكامل للطبيب" : "Doctor's Full Name"}</label>
+                <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "التخصص" : "Specialty"}</label>
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "رقم القيد بالنقابة" : "Syndicate Registration No."}</label>
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+                </div>
+              </div>
+            </>
+          )}
+
+          {selectedType === 'supplier' && (
+            <>
+              <div>
+                <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "اسم الشركة / المورد" : "Company / Supplier Name"}</label>
+                <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "رقم السجل التجاري" : "Commercial Register No."}</label>
+                  <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "نوع المنتجات" : "Product Types"}</label>
+                  <select required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all appearance-none">
+                    <option value="">{isAr ? "اختر النوع" : "Select Type"}</option>
+                    <option value="equip">{isAr ? "أجهزة ومعدات طبية" : "Medical Equipment"}</option>
+                    <option value="consum">{isAr ? "مستهلكات طبية" : "Medical Consumables"}</option>
+                    <option value="software">{isAr ? "برمجيات وأنظمة" : "Software & Systems"}</option>
+                  </select>
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* Common Fields */}
           <div>
-            <label className="block text-sm font-bold mb-2">
-              {selectedType === 'clinic' ? (isAr ? "اسم العيادة" : "Clinic Name") : 
-               selectedType === 'supplier' ? (isAr ? "اسم الشركة" : "Company Name") : 
-               (isAr ? "الاسم الكامل" : "Full Name")}
-            </label>
-            <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition-all" />
+            <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "البريد الإلكتروني" : "Email Address"}</label>
+            <input type="email" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
           </div>
           <div>
-            <label className="block text-sm font-bold mb-2">{isAr ? "البريد الإلكتروني" : "Email Address"}</label>
-            <input type="email" required className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition-all" />
-          </div>
-          <div>
-            <label className="block text-sm font-bold mb-2">{isAr ? "كلمة المرور" : "Password"}</label>
-            <input type="password" required className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary outline-none transition-all" />
+            <label className="block text-sm font-bold mb-2 text-foreground">{isAr ? "كلمة المرور" : "Password"}</label>
+            <input type="password" required className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:ring-2 focus:ring-primary outline-none transition-all" />
           </div>
           
-          <button type="submit" className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all mt-4">
+          <button type="submit" className="w-full bg-primary text-primary-foreground py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all mt-6 shadow-lg shadow-primary/20 hover:-translate-y-0.5">
             {isAr ? "إنشاء حساب" : "Create Account"}
           </button>
         </form>
