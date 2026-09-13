@@ -1,4 +1,5 @@
 import Hero from "../../components/home/Hero";
+import DHACompliance from "../../components/home/DHACompliance";
 import { Calendar, Stethoscope, Briefcase, ShoppingBag, ArrowRight, ArrowLeft, CheckCircle2, Users, Building, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 
@@ -401,7 +402,10 @@ export default async function Home({
         </div>
       </section>
 
-      {/* 6. Massive Final CTA */}
+      {/* 6. DHA Compliance Section */}
+      <DHACompliance lang={lang} />
+
+      {/* 7. Massive Final CTA */}
       <section className="py-24 bg-background relative z-10 px-4">
         <div className="container mx-auto max-w-6xl bg-gradient-to-br from-primary via-blue-600 to-indigo-700 rounded-[3rem] p-12 md:p-20 text-center text-white shadow-2xl overflow-hidden relative">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-[80px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
