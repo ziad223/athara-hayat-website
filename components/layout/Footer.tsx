@@ -84,9 +84,42 @@ export default function Footer({ lang }: { lang: string }) {
 
         </div>
         
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm font-medium text-slate-500">
-          <p>© {new Date().getFullYear()} Athary Hayat. {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}</p>
-          <div className="flex gap-6">
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-sm font-medium text-slate-500">
+          <div className="flex flex-col items-center md:items-start gap-1.5">
+            <p className="text-slate-400">
+              © {new Date().getFullYear()}{" "}
+              <span className="text-white font-bold">أثارة حياة — Athary Hayat</span>.{" "}
+              {isAr ? "جميع الحقوق محفوظة." : "All rights reserved."}
+            </p>
+            <p className="text-slate-500 text-xs">
+              {isAr ? (
+                <>
+                  نظام العيادات مملوك لـ{" "}
+                  <a
+                    href="https://egitg.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-sky-400 transition-colors font-semibold underline underline-offset-2"
+                  >
+                    مجموعة دليل الشرق لتكنولوجيا المعلومات
+                  </a>
+                </>
+              ) : (
+                <>
+                  Clinic system owned by{" "}
+                  <a
+                    href="https://egitg.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-sky-400 transition-colors font-semibold underline underline-offset-2"
+                  >
+                    East Guide Information Technology Group
+                  </a>
+                </>
+              )}
+            </p>
+          </div>
+          <div className="flex gap-6 flex-wrap justify-center">
             <Link href={`/${lang}/legal/privacy`} className="hover:text-white transition-colors">{isAr ? "سياسة الخصوصية" : "Privacy Policy"}</Link>
             <Link href={`/${lang}/legal/terms`} className="hover:text-white transition-colors">{isAr ? "شروط الاستخدام" : "Terms of Use"}</Link>
             <Link href={`/${lang}/legal/data`} className="hover:text-white transition-colors">{isAr ? "سياسة البيانات" : "Data Policy"}</Link>
